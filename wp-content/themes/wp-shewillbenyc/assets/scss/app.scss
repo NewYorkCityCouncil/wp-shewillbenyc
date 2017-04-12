@@ -1,0 +1,55 @@
+/*--------------------------------------------------
+  Import foundation before your custom styles
+--------------------------------------------------*/
+@import "foundation";
+
+
+/*--------------------------------------------------
+  Global site layout
+--------------------------------------------------*/
+.top-bar {
+  box-shadow: 0 5px 0 rgba($black, 0.1);
+}
+
+.site-title {
+  color: $black;
+}
+
+.responsive-menu-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.top-bar-right {
+  li {
+        padding: 1.25rem .75rem;
+    line-height: 1;
+  }
+  a.inline {
+    display: inline;
+    padding: 0;
+    line-height: inherit;
+  }
+}
+
+.site-container {
+  padding: $global-margin 0;
+  background: $tan-light url('../images/grid.gif') 0 0 repeat;
+  @include breakpoint(retina) {
+    background-image: url('../images/grid@2x.gif');
+    background-size: 20px 100px;
+  }
+}
+
+.site-footer {
+  padding: $global-margin*2 0;
+  box-shadow: inset 0 5px 0 rgba($black, 0.1);
+}
+
+/*--------------------------------------------------
+  Typography
+--------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+  opacity: 0.85;
+  letter-spacing: -0.06em;
+}
