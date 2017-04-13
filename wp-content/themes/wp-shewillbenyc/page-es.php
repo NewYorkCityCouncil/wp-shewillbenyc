@@ -1,3 +1,5 @@
+<?php /* Template Name: Default (Spanish) */ ?>
+
 <?php get_header(); ?>
 
   <div class="row">

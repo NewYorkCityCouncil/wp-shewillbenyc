@@ -1,4 +1,4 @@
-<?php /* Template Name: Raw HTML, Spanish */ ?>
+<?php /* Template Name: Raw HTML (Spanish) */ ?>
 
 <?php get_header(); ?>
 
