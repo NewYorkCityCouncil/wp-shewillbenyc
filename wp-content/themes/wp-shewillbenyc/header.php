@@ -22,16 +22,17 @@
     <meta property="og:title"       content="#SheWillBe" />
     <meta property="og:site_name"   content="#SheWillBe"/>
     <meta property="og:description" content="New York City must support every young woman. New York City Council is listening." />
-    <meta property="og:image"       content="<?php echo get_stylesheet_directory_uri(); ?>/images/share-image-1200x630.jpg" />
+    <meta property="og:image"       content="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/share-image-1200x630.jpg" />
 
     <meta name="twitter:card"        content="summary_large_image" />
     <meta name="twitter:site"        content="@SheWillBeNYC" />
     <meta name="twitter:creator"     content="@NYCCouncil" />
     <meta name="twitter:title"       content="#SheWillBe" />
     <meta name="twitter:description" content="New York City must support every young woman. New York City Council is listening." />
-    <meta name="twitter:image"       content="<?php echo get_stylesheet_directory_uri(); ?>/images/share-image-1200x630.jpg" />
+    <meta name="twitter:image"       content="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/share-image-1200x630.jpg" />
 
     <?php wp_head(); ?>
+
 
   </head>
 
@@ -43,7 +44,7 @@
       if ( is_page_template( 'page-raw-es.php' ) || is_category( 'Noticias' ) ) {
         $page_is_spanish = true;
       } else {
-        $is_member_site = false;
+        $page_is_spanish = false;
       }
       ?>
 

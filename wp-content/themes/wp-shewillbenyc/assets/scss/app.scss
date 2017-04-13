@@ -42,9 +42,43 @@
 }
 
 .site-footer {
-  padding: $global-margin*2 0;
   box-shadow: inset 0 5px 0 rgba($black, 0.1);
+  padding-top: rem-calc( map-get($grid-column-gutter, medium) );
+  padding-bottom: rem-calc( map-get($grid-column-gutter, medium) );
+  @include breakpoint(medium) {
+    padding-top: rem-calc( map-get($grid-column-gutter, medium)*2 );
+    padding-bottom: rem-calc( map-get($grid-column-gutter, medium)*2 );
+  }
 }
+
+.section-padded {
+  padding-top: rem-calc( map-get($grid-column-gutter, small) );
+  padding-bottom: rem-calc( map-get($grid-column-gutter, small) );
+  @include breakpoint(medium) {
+    padding-top: rem-calc( map-get($grid-column-gutter, medium) );
+    padding-bottom: rem-calc( map-get($grid-column-gutter, medium) );
+  }
+}
+
+
+/*--------------------------------------------------
+  Alternate background colors
+--------------------------------------------------*/
+.alt-bg-gradient {
+  color: $off-white;
+  background-color: $red;
+  background: -moz-linear-gradient(left,  rgba($slate,1) 0%, rgba($red,1) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba($slate,1)), color-stop(100%,rgba($red,1)));
+  background: -webkit-linear-gradient(left,  rgba($slate,1) 0%,rgba($red,1) 100%);
+  background: -o-linear-gradient(left,  rgba($slate,1) 0%,rgba($red,1) 100%);
+  background: -ms-linear-gradient(left,  rgba($slate,1) 0%,rgba($red,1) 100%);
+  background: linear-gradient(to right,  rgba($slate,1) 0%,rgba($red,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b5363', endColorstr='#d95762',GradientType=1 );
+}
+.alt-bg-red { color: $tan; background-color: $red; }
+.alt-bg-slate { color: $off-white; background-color: $slate; }
+.alt-bg-tan { background-color: $tan; }
+
 
 /*--------------------------------------------------
   Typography
@@ -52,4 +86,304 @@
 h1,h2,h3,h4,h5,h6 {
   opacity: 0.85;
   letter-spacing: -0.06em;
+}
+
+p:empty {
+  margin: 0;
+}
+
+.color-off-white { color: $off-white; }
+.color-tan { color: $tan; }
+.color-tan-light { color: $tan-light; }
+.color-cyan { color: $cyan; }
+.color-red { color: $red; }
+.color-fuchsia { color: $fuchsia; }
+.color-slate { color: $slate; }
+.color-yellow { color: $yellow; }
+.color-oil { color: $oil; }
+
+.sans-serif {
+  font-family: $body-font-family;
+  opacity: 1;
+  letter-spacing: 0;
+}
+
+.button {
+  font-weight: $global-weight-bold;
+}
+
+.shadowed {
+  box-shadow: 8px 8px 0 rgba($black,0.2);
+}
+
+.ghosted {
+  img {
+    opacity: 0.5;
+    -webkit-transition: opacity .25s ease;
+       -moz-transition: opacity .25s ease;
+            transition: opacity .25s ease;
+    -webkit-backface-visibility: hidden;
+  }
+  &:hover img {
+    opacity: 1;
+  }
+}
+
+
+/*--------------------------------------------------
+  Intro Section & Call to Action
+--------------------------------------------------*/
+.intro-section {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  min-height: rem-calc(300);
+  background-image: url('../images/header-photo-c-640x320.jpg');
+  @include breakpoint(retina) {
+    background-image: url('../images/header-photo-c-900x450.jpg');
+  }
+  @include breakpoint(medium) {
+    min-height: rem-calc(400);
+    background-image: url('../images/header-photo-c-900x450.jpg');
+    @include breakpoint(retina) { background-image: url('../images/header-photo-c-1600x800.jpg'); }
+  }
+  @include breakpoint(large) {
+    min-height: rem-calc(500);
+    @include breakpoint(retina) { background-image: url('../images/header-photo-c.jpg'); }
+  }
+  @include breakpoint(xlarge) {
+    min-height: rem-calc(550);
+    background-image: url('../images/header-photo-c.jpg');
+    @include breakpoint(retina) { background-image: url('../images/header-photo-c-3050x1524.jpg'); }
+  }
+  @media print {
+    min-height: 0;
+  }
+}
+
+.intro-hashtag {
+  color: $slate;
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1em;
+  padding: 40px 0 0;
+  line-height: 1.2;
+  font-size: rem-calc(34);
+  @include breakpoint(medium) { font-size: rem-calc(54); padding-top: 60px; }
+  @include breakpoint(large) { padding-top: 90px; }
+  @include breakpoint(xlarge) { font-size: rem-calc(70); }
+  @include breakpoint(xxlarge) { font-size: rem-calc(90); }
+  @media print {
+    padding-top: 0;
+  }
+  span {
+    font-family: $header-font-family;
+    position: absolute;
+    top: 100%;
+    font-size: 1.6em;
+    color: $black;
+    opacity: 0.85;
+    margin-top: -0.55em;
+    padding-right: 0.25em;
+    left: 0.25em;
+    @include breakpoint(medium) { left: 15%; margin-top: -0.62em; }
+    @include breakpoint(large) { left: 30%; }
+    @include breakpoint(xlarge) { left: 40%; }
+    &.ellasera {
+      font-size: 1.25em;
+    }
+  }
+}
+
+.intro-call-to-action {
+  padding: 0.375em 0.5em;
+  max-width: 11.75em;
+  text-align: center;
+  color: $off-white;
+  font-size: 1rem;
+  line-height: 1.2;
+  @include breakpoint(medium) {
+    font-size: rem-calc(23);
+    max-width: none;
+    margin-left: map-get($grid-column-gutter, medium)/-2;
+    text-align: left;
+  }
+  @include breakpoint(large) {
+    font-size: rem-calc(27);
+  }
+  background-color: $red;
+  background: -moz-linear-gradient(left,  rgba($red,0.7) 0%, rgba($slate,0.7) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba($red,0.7)), color-stop(100%,rgba($slate,0.7)));
+  background: -webkit-linear-gradient(left,  rgba($red,0.7) 0%,rgba($slate,0.7) 100%);
+  background: -o-linear-gradient(left,  rgba($red,0.7) 0%,rgba($slate,0.7) 100%);
+  background: -ms-linear-gradient(left,  rgba($red,0.7) 0%,rgba($slate,0.7) 100%);
+  background: linear-gradient(to right,  rgba($red,0.7) 0%,rgba($slate,0.7) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3d95762', endColorstr='#b34b5363',GradientType=1 );
+  @media print {
+    max-width: none;
+    font-size: rem-calc(27);
+    padding: 0;
+  }
+}
+
+.intro-section p {
+  clear: both;
+  max-width: none;
+}
+.intro-survey-button {
+  @include breakpoint(medium) {
+    margin-left: 10%;
+    font-size: 2rem !important;
+  }
+}
+
+
+/*--------------------------------------------------
+  Memer / Canvas
+--------------------------------------------------*/
+.memer {
+  position: relative;
+  color: $slate;
+  @include breakpoint(large) {
+    margin-top: -5rem;
+  }
+  @include breakpoint(xlarge) {
+    margin-top: -6rem;
+  }
+  h3 {
+    line-height: 1.2;
+    margin: 0;
+  }
+  @media print {
+    border: 2px solid Black;
+    padding: rem-calc(16);
+    display: inline-block;
+  }
+}
+.memer--inner-wrapper {
+  position: relative;
+  label {
+    position: absolute;
+    top: 0;
+    z-index: 20;
+  }
+  button {
+    position: absolute;
+    bottom: 10%;
+    z-index: 20;
+    border-right: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+  }
+  a, label, button {
+    font-size: $h4-font-size;
+    padding: rem-calc(12);
+  }
+  a {
+    position: relative;
+    top: 100%;
+    margin-top: rem-calc(6) !important;
+  }
+  .button-off {
+    position: absolute;
+    margin-left: -99999px !important;
+    right: auto;
+    left: auto;
+    width: 1px !important;
+  }
+}
+
+.canvas-wrapper,
+.canvas-container {
+  position: relative;
+  width: 100% !important;
+  height: 0 !important;
+  padding-bottom: 100%;
+  margin: auto;
+  z-index: 10;
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.upper-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#textarea-anchor {
+  position: absolute;
+  bottom: rem-calc(-8);
+  height: 25%;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+/*--------------------------------------------------
+  Letter
+--------------------------------------------------*/
+.speaker-photo {
+  background-color: $off-white;
+  border-radius: 2px;
+  background-image: url('../images/mmv-shewillbe-launch.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 8px solid $off-white;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+  margin: auto;
+  @include breakpoint(large) {
+    left: rem-calc(16);
+    z-index: 2;
+    margin-top: rem-calc(40);
+    -webkit-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+}
+.speaker-letter {
+  background-color: $tan-light;
+  color: $oil;
+  border-radius: 2px;
+  padding: rem-calc( map-get($grid-column-gutter, small) );
+  font-size: rem-calc(13);
+  @include breakpoint(large) {
+    padding: rem-calc( map-get($grid-column-gutter, medium) );
+    position: relative;
+    z-index: 1;
+    right: rem-calc(16);
+    -webkit-transform: skew(-5deg, 3deg);
+        -ms-transform: skew(-5deg, 3deg);
+            transform: skew(-5deg, 3deg);
+  }
+}
+
+.mmv-signature {
+  width: 138px;
+}
+
+
+/*--------------------------------------------------
+  Partners list
+--------------------------------------------------*/
+.partners-list {
+  list-style-type: none;
+  color: $slate;
+  margin: 0;
+  li {
+    display: inline-block;
+    margin: 0 rem-calc(16) 0 0;
+  }
+}
+#all-partners-list {
+  display: none;
 }
