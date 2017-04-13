@@ -39,29 +39,25 @@
 
     <div id="sticky-wrapper">
 
+      <?php
+      if ( is_page_template( 'page-raw-es.php' ) || is_category( 'Noticias' ) ) {
+        $page_is_spanish = true;
+      } else {
+        $is_member_site = false;
+      }
+      ?>
+
       <div data-sticky-container>
         <header class="site-header sticky" role="banner" data-sticky data-margin-top="0" data-sticky-on="small" data-anchor="sticky-wrapper" style="width:100%">
           <div class="top-bar">
 
             <div class="top-bar-title">
               <span data-responsive-toggle="responsive-menu" data-hide-for="large" class="responsive-menu-toggle"><span class="menu-icon dark" data-toggle></span></span>
-              <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php
-                if ( is_page_template( 'page-raw-es.php' ) ) {
-                  echo '#EllaSerá';
-                } else {
-                  bloginfo('name');
-                }
-              ?></a>
+              <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?><?php if ( $page_is_spanish == true ) { echo 'es/'; } ?>"><?php if ( $page_is_spanish == true ) { echo '#EllaSerá'; } else { bloginfo('name'); } ?></a>
             </div>
 
             <div class="top-bar-left" id="responsive-menu">
-              <?php
-              if ( is_page_template( 'page-raw-es.php' ) ) {
-                spanish_topbar();
-              } else {
-                english_topbar();
-              }
-              ?>
+              <?php if ( $page_is_spanish == true ) { spanish_topbar(); } else { english_topbar(); } ?>
             </div>
             <div class="top-bar-right show-for-xlarge">
               <ul class="horizontal menu">
