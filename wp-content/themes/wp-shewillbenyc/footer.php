@@ -3,7 +3,7 @@
       <footer class="site-footer">
         <div class="row">
           <div class="columns text-center">
-            <p class="full-width extra-margin-bottom">
+            <p>
               <a href="http://shewillbe.nyc/">#SheWillBe</a>
               is an initiative of
               <a href="http://council.nyc.gov/d8/html/members/home.shtml"><strong>Speaker&nbsp;Melissa&nbsp;Mark-Viverito</strong></a>
@@ -12,7 +12,7 @@
             </p>
           </div>
         </div>
-        <div class="row extra-padding-bottom hide-for-print">
+        <div class="row hide-for-print">
           <div class="columns small-11 small-centered medium-8 large-6">
             <div class="row small-up-6">
               <div class="column"><a class="ghosted" href="https://twitter.com/SheWillBeNYC"><img alt="twitter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/social-icon-twitter-slate.png" class=""></a></div>
