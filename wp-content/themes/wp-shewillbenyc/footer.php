@@ -4,11 +4,11 @@
         <div class="row">
           <div class="columns text-center">
             <p>
-              <a href="http://shewillbe.nyc/">#SheWillBe</a>
-              is an initiative of
-              <a href="http://council.nyc.gov/d8/html/members/home.shtml"><strong>Speaker&nbsp;Melissa&nbsp;Mark-Viverito</strong></a>
-              &amp;
-              <a href="http://council.nyc.gov/"><strong>New&nbsp;York&nbsp;City&nbsp;Council</strong></a>
+              <?php if ( is_page_template( 'page-raw-es.php' ) || is_category( 'Noticias' ) ) { ?>
+                <a href="http://shewillbe.nyc/">#EllaSerá</a> es una iniciativa de <a href="http://council.nyc.gov/d8/html/members/home.shtml"><strong>Presidenta&nbsp;Melissa&nbsp;Mark&#8209;Viverito</strong></a> &amp; <a href="http://council.nyc.gov/"><strong>Concejo&nbsp;Municipal&nbsp;de&nbsp;NY</strong></a>
+              <?php } else { ?>
+                <a href="http://shewillbe.nyc/">#SheWillBe</a> is an initiative of <a href="http://council.nyc.gov/d8/html/members/home.shtml"><strong>Speaker&nbsp;Melissa&nbsp;Mark-Viverito</strong></a> &amp; <a href="http://council.nyc.gov/"><strong>New&nbsp;York&nbsp;City&nbsp;Council</strong></a>
+              <?php } ?>
             </p>
           </div>
         </div>

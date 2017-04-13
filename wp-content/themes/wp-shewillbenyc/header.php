@@ -62,7 +62,13 @@
             </div>
             <div class="top-bar-right show-for-xlarge">
               <ul class="horizontal menu">
-                <li class="show-for-xlarge-up">An initiative of <a href="http://council.nyc.gov/melissa-mark-viverito/" class="inline"><strong>Speaker Melissa Mark-Viverito</strong></a> &amp; <a href="http://council.nyc.gov/" class="inline"><strong>New York City Council</strong></a></li>
+                <li class="show-for-xlarge-up">
+                  <?php if ( $page_is_spanish == true ) { ?>
+                    Una iniciativa de la <a href="http://council.nyc.gov/melissa-mark-viverito/" class="inline"><strong>Presidenta Melissa Mark-Viverito</strong></a> &amp; <a href="http://council.nyc.gov/" class="inline"><strong>Concejo Municipal de NY</strong></a>
+                  <?php } else { ?>
+                    An initiative of <a href="http://council.nyc.gov/melissa-mark-viverito/" class="inline"><strong>Speaker Melissa Mark-Viverito</strong></a> &amp; <a href="http://council.nyc.gov/" class="inline"><strong>New York City Council</strong></a>
+                  <?php } ?>
+                </li>
               </ul>
             </div>
 
