@@ -45,12 +45,22 @@
 
             <div class="top-bar-title">
               <span data-responsive-toggle="responsive-menu" data-hide-for="large" class="responsive-menu-toggle"><span class="menu-icon dark" data-toggle></span></span>
-              <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a>
+              <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php
+                if ( is_page_template( 'page-raw-es.php' ) ) {
+                  echo '#EllaSerá';
+                } else {
+                  bloginfo('name');
+                }
+              ?></a>
             </div>
 
             <div class="top-bar-left" id="responsive-menu">
               <?php
-              if (true) { english_topbar(); } else { spanish_topbar(); }
+              if ( is_page_template( 'page-raw-es.php' ) ) {
+                spanish_topbar();
+              } else {
+                english_topbar();
+              }
               ?>
             </div>
             <div class="top-bar-right show-for-xlarge">
