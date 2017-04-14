@@ -5099,7 +5099,7 @@ a.thumbnail {
   background-color: #f3e5d9; }
 
 /*--------------------------------------------------
-  Typography
+  Typography & Images
 --------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   opacity: 0.85;
@@ -5153,6 +5153,15 @@ p:empty {
 
 .ghosted:hover img {
   opacity: 1; }
+
+.selfie {
+  transition: all .2s ease-in-out; }
+  .selfie:hover {
+    -ms-transform: rotate(2deg) scale(1.2);
+    transform: rotate(2deg) scale(1.2); }
+    li:nth-child(even) .selfie:hover {
+      -ms-transform: rotate(-2deg) scale(1.2);
+      transform: rotate(-2deg) scale(1.2); }
 
 /*--------------------------------------------------
   Intro Section & Call to Action

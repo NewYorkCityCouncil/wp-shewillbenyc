@@ -81,7 +81,7 @@
 
 
 /*--------------------------------------------------
-  Typography
+  Typography & Images
 --------------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
   opacity: 0.85;
@@ -126,6 +126,21 @@ p:empty {
   }
   &:hover img {
     opacity: 1;
+  }
+}
+
+.selfie {
+  -webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+  &:hover {
+    -webkit-transform: rotate(2deg) scale(1.2);
+        -ms-transform: rotate(2deg) scale(1.2);
+            transform: rotate(2deg) scale(1.2);
+    li:nth-child(even) & {
+      -webkit-transform: rotate(-2deg) scale(1.2);
+          -ms-transform: rotate(-2deg) scale(1.2);
+              transform: rotate(-2deg) scale(1.2);
+    }
   }
 }
 
