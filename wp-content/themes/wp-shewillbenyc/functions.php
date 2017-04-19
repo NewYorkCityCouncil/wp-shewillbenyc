@@ -5,9 +5,34 @@ require_once(get_template_directory().'/assets/functions/menus.php');
 
 
 /**
- * Get stylesheet directory for images
+ * Shortcode for tagged posts
  */
-function child_shortcode() {
-  return get_bloginfo('stylesheet_directory');
+function get_tagged_posts( $atts ) {
+
+  $a = shortcode_atts( array(
+      'category' => 'news',
+      'tag' => '',
+  ), $atts );
+
+  global $post;
+
+  $html = '';
+
+  $my_query = new WP_Query( array(
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+    'category_name' => $a['category'],
+    'tag' => $a['tag'],
+  ));
+
+  if( $my_query->have_posts() )  {
+    while( $my_query->have_posts() ) {
+      $my_query->the_post();
+      $html .= '<h2><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+    } // end while
+  } // end if
+
+  return $html;
+
 }
-add_shortcode('theme-path', 'child_shortcode');
+add_shortcode( 'get-tagged-posts', 'get_tagged_posts' );
