@@ -29,10 +29,21 @@ function get_tagged_posts( $atts ) {
     while( $my_query->have_posts() ) {
       $my_query->the_post();
       $html .= '<h4 class="sans-serif color-slate"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4>';
-    } // end while
-  } // end if
+      $html .= '<p>' . get_the_excerpt() . '</p>';
+    }
+  }
 
   return $html;
 
 }
 add_shortcode( 'get-tagged-posts', 'get_tagged_posts' );
+
+
+/*
+ * Replace the excerpt's [...] text with a "Read More" link
+ */
+function new_excerpt_more($more) {
+  global $post;
+  return ' <a class="moretag" href="'. get_permalink($post->ID) . '"><small><strong>&hellip;READ MORE</strong></small></a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
