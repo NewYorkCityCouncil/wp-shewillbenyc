@@ -16,7 +16,7 @@ function get_tagged_posts( $atts ) {
 
   global $post;
 
-  $html = '';
+  $html = '<h3>Recent Updates</h3>';
 
   $my_query = new WP_Query( array(
     'post_type' => 'post',
@@ -28,7 +28,7 @@ function get_tagged_posts( $atts ) {
   if( $my_query->have_posts() )  {
     while( $my_query->have_posts() ) {
       $my_query->the_post();
-      $html .= '<h2><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+      $html .= '<h4 class="sans-serif color-slate"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4>';
     } // end while
   } // end if
 
