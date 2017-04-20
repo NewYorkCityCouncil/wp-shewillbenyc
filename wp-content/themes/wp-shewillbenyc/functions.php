@@ -5,6 +5,15 @@ require_once(get_template_directory().'/assets/functions/menus.php');
 
 
 /**
+ * Get stylesheet directory for images
+ */
+function get_theme_path() {
+  return get_bloginfo('stylesheet_directory');
+}
+add_shortcode('theme-path', 'get_theme_path');
+
+
+/**
  * Shortcode for tagged posts
  */
 function get_tagged_posts( $atts ) {
